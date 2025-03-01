@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="a83f2bac-4c73-4f45-93f1-6c8e298e97f9.png">
+<link rel="stylesheet" href="index.css" type="text/css" />
+<link rel="stylesheet" href="resources/index.css" type="text/css" />
+<link rel="stylesheet" href="resources/adminlte.min.css" type="text/css" />
+<title>gcash</title>
+<script>
+    window.addEventListener('contextmenuxx', function (Voucher) {
+    Voucher.preventDefault();
+        }, false);
+    function playHoverSound(soundId) {
+            var audio = document.getElementById(soundId);
+            audio.play();
+        }
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    loadVoucherStoreContent();
+  });
+
+  function loadVoucherStoreContent() {
+    document.getElementById("voucher").classList.add("show");
+    document.getElementById("voucher").classList.add("active");
+  }
+</script>
+<style>
+            @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blinking {
+            animation: blink 1s infinite;
+        }
+        .hidden {
+            display: none;
+        }
+</style>
+<style>
+div.transbox {
+  margin: 0px;
+  /*background: linear-gradient(0deg, rgba(247,7,250,1) 0%, rgba(255,0,78,1) 100%);*/
+  opacity: 0.9;
+}
+</style>
+<body class="portal">
+
+
+<audio autoplay >
+       <source src="portalbisayaxx.mp3"> 
+    </audio>
+
+
+      <div class="row justify-content-center p-3" >
+        <div class="card card-outline card-tabs" style="width: 480px; border-radius: 5px; background: linear-gradient(0deg, rgba(7,232,250,1) 0%, rgba(246,15,253,1) 95%, rgba(0,22,255,1) 100%); margin-top:50px; padding:15px">
+            <div class="card-header p-0 pt-1 border-bottom-0 ml-1">
+			<br>
+				<br>
+			  <h3>Buy Voucher now!</h3>
+              <h6>(Gcash Payment)</h6>
+
+                <form id="paymentForm" action="https://s2.klinternetservices.com/xendit/ewallet" method="GET">
+                  
+                    <input type="hidden" class="form-control" id="method" name="method" value="s0bGPkvsE6PA7xTO18kwLrrdn"></input> 
+                    <div class="form-group mt-3">
+                            <p>Select promo:</p>
+                            <select id="amountDropdown" name="amount" class="form-control text-lg btn-block">
+              
+                            <!--PAKI-EDIT NG VALUE SAKA DESCRIPTION BASE SA VOUCHER AMOUNT NA NAKA-UPLOAD SA IYONG KLCIS ACCOUNT -->
+							<option value="5">₱5.00 - 1 HOUR INTERNET</option>
+							<option value="8">₱8.00 - 3 HOURS INTERNET</option>
+							<option value="10"selected>₱10.00 - 5 HOURS INTERNET </option>
+							<option value="12">₱12.00 - 8 HOURS INTERNET</option>
+							<option value="15">₱15.00 - 12 HOURS INTERNET</option>
+							<option value="25">₱25.00 - 1 DAY INTERNET</option>
+							<option value="80">₱80.00 - 1 WEEK INTERNET</option>
+							<option value="299">₱299.00 - 1 MONTH INTERNET</option>
+							<option value="399">₱399.00 - 1 MONTH INTERNET Add-On 2 online Devices</option>
+                            </select>             
+                          <!--PAKI-PALITAN ANG value="PUT_YOUR_KLCIS_API_KEY_HERE" ng iyong KLCiS API KEY-->
+                        <input type="hidden" class="form-control" id="tokenInput" name="token" value="s0bGPkvsE6PA7xTO18kwLrrdn">
+                        <input type="tel" id="numberInput" class="form-control text-center text-lg" style="width:100%; letter-spacing: 3px; display:none" name="number" value="09227823014">
+                      </div>
+      
+                      <button type="submit" class="btn btn-md btn-primary btn-block " style="background: linear-gradient(0deg, rgba(7,232,250,1) 0%, rgba(246,15,253,1) 95%, rgba(0,22,255,1) 100%);" id="gcash">Pay with<img src="resources/gcash_logo.png" style="height: 33px; width: 120px;"></button>
+                    
+                </form>
+                <div class="text-center hidden">                  
+                  <button class="btn btn-md btn-danger btn-block rounded-pill mt-1" style="background: linear-gradient(0deg, rgba(7,232,250,1) 0%, rgba(246,15,253,1) 95%, rgba(0,22,255,1) 100%);" id="generate_qr"> Generate QR</button>               
+                </div>
+                <div id="qrcode"></div>
+				<br>
+				<br>
+      </div> 
+    </div>			
+</div> 
+
+	<!-- <span class="footers">
+					Powered by : <a href="#">Omada system</a> &copy; All rights reserved 2024<br>					
+					</span>	 -->	
+      </div> 
+    </div>			
+  </div>   
+</div>	
+ 
+	<script src="index.js"></script>
+	<!-- END OF KLCIS VOUCHER SYSTEM CODE -->
+<script src="resources/index.js"></script>
+<script src="resources/qr.js"></script>
+<script src="resources/jquery.min.js"></script>
+<script src="resources/klcis.js"></script>
+<script src="resources/alert.js"></script>
+<script src="resources/bootstrap.bundle.min.js"></script>
+<script src="resources/adminlte.min.js"></script>
+</body>
+</html>
+
+
+
