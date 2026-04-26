@@ -1,4 +1,3 @@
-<!--"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --kiosk --noerrdialogs --disable-session-crashed-bubble https://silog2.pages.dev/-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +17,11 @@
         .nav-btn { border:none; background:rgba(255,255,255,0.1); color:#fff; padding: 8px 15px; border-radius: 4px; cursor:pointer;  transition: 0.3s; }
         .nav-btn:hover { background: rgba(255,255,255,0.2); }
 
-        .app-container { display: flex; flex: 1; gap: 5px; padding: 10px; box-sizing: border-box; overflow: hidden; max-height:800px;}
+        .app-container { display: flex; gap: 5px; padding: 10px; box-sizing: border-box; overflow: hidden; max-height:800px;}
         .column { background: white; padding: 15px; display: flex; flex-direction: column; box-shadow: 0 2px 5px rgba(0,0,0,0.5); height: 100%; box-sizing: border-box; }
         
-        .products-panel { flex:1; border-top: 8px solid var(--primary);border-radius:20px; border-bottom: 8px solid var(--primary); border-left: 1px solid var(--primary); border-right: 1px solid var(--primary); }
-        .cart-panel { flex: 1; border-top: 8px solid var(--accent); border-radius:20px; border-bottom: 8px solid var(--accent); border-left: 1px solid var(--accent); border-right: 1px solid var(--accent); }
+        .products-panel { flex: .5; border-top: 8px solid var(--primary);border-radius:20px; border-bottom: 8px solid var(--primary); border-left: 1px solid var(--primary); border-right: 1px solid var(--primary); }
+        .cart-panel { flex: 1; border-top: 8px solid var(--accent); border-radius:20px; border-bottom: 8px solid var(--accent); border-left: 1px solid var(--accent); border-right: 1px solid var(--accent);}
         .checkout-panel { flex: .5; border-top: 8px solid var(--edit);border-radius:20px; border-bottom: 8px solid var(--edit); border-left: 1px solid var(--edit); border-right: 1px solid var(--edit); }
 
         .scroll-list { flex: 1; overflow-y: auto; border: 1px solid #eee; margin-top: 10px; border-radius: 5px; }
@@ -53,8 +52,8 @@
             #receipt-print { position: absolute; left: 0; top: 0; width: 58mm; display: block !important; }
         }
         
-        .input-group { position: relative; width: 250px; }
-        .input-group input { width: 91%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; outline: none; font-size: 16px; transition: border-color 0.3s; }
+        .input-group { position: relative; width: 150px; gap:5px; }
+        .input-group input { width: 130px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; outline: none; font-size: 16px; transition: border-color 0.3s; }
         .input-group label { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: white; padding: 0 5px; color: #999; pointer-events: none; transition: 0.3s ease all; }
         .input-group:hover label, .input-group input:focus + label, .input-group input:not(:placeholder-shown) + label { top: 0; font-size: 12px; color: #007bff; font-weight: bold; }
         .input-group input:focus { border-color: #007bff; }
@@ -288,10 +287,9 @@ background: #DEDEDE;
   </div>
 </div>
 
-<div id="app-container" style="display: none;">
-    </div>
+
 <h3 class="dashboard-header">
-    <span><i class="fas fa-cash-register"></i> MEI-CAI WHOLESALE & RETAIL STORE <small style="font-weight: normal; opacity: 0.8; font-size: 0.7em;">v2.0</small></span>
+    <span><i class="fas fa-cash-register"></i> MEICAI STORE <small style="font-weight: normal; opacity: 0.8; font-size: 0.7em;">POS v2.0</small></span>
     <div>
 	<button onclick="openUtangModal()" style="background:rgba(255,255,255,0.1);color: white; padding: 8px ; cursor: pointer; border: none; border-radius: 4px;">
     <i class="fas fa-book"></i> CREDIT LEDGER
@@ -349,13 +347,12 @@ background: #DEDEDE;
             <select id="payMethod" style="width:100%; margin-bottom: 5px;font-size:16px;">
                 <option value="Cash">Cash</option>
                 <option value="GCash">GCash</option>
-                <!--<option value="Bank Transfer">Bank Transfer</option>
-				<option value="Debit Card">Debit Card</option>
-				<option value="Credit Card">Credit Card</option>-->
 				<option value="Credit Utang">Credit</option>
 			</select>
-			<label>Customer Name:</label>
+			<label>Customer Name :</label>
 				<input type="text" id="customerName" placeholder="Enter Name" style="width:94%; font-size:16px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+			<label>Password :</label>
+			<input type="password" id="customerpassword" placeholder="Enter Customer PIN" style="width:94%; font-size:16px; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
 
             <button id="discountBtn" onclick="askDiscountPassword()" style=" background:#fff; border: 1px solid var(--edit); color:orange; cursor: pointer; padding: 10px; font-weight: bold; width:100%">
                 <i class="fas fa-percents"></i> APPLY 20% DISCOUNT
@@ -417,15 +414,17 @@ background: #DEDEDE;
     <div class="modal-content">
         <h2>Current Stock Status</h2>
 <div style="display: flex; flex-direction: row; gap: 10px; width: 100%;">
-   <button class="nav-btn" onclick="toggleModal('inventoryModal'); toggleModal('salesModal')" style="width: 25%;  background:Blue;color:white; "><i class="fas fa-boxes"></i>Sales Report</button>
-   <button class="btn-action" style="background:var(--accent); width: 25%;" onclick="toggleModal('bulkUploadModal');toggleModal('inventoryModal')">
-        <i class="fas fa-file-import"></i> Bulk Upload (csv/txt)
+   <button class="nav-btn" onclick="toggleModal('inventoryModal'); toggleModal('salesModal')" style="width: 20%;  background:Blue;color:white; "><i class="fas fa-boxes"></i>Sales Report</button>
+   <button class="btn-action" style="background:var(--accent); width: 20%;" onclick="toggleModal('bulkUploadModal');toggleModal('inventoryModal')">
+        <i class="fas fa-file-import"></i> Bulk Upload
     </button>
     
-    <button class="btn btn-danger" style="width: 25%;  background:gray;color:white; " onclick="toggleModal('lowStockModal');toggleModal('inventoryModal');">
+    <button class="btn btn-danger" style="width: 20%;  background:gray;color:white; " onclick="toggleModal('lowStockModal');toggleModal('inventoryModal');">
         Low Stocks Report
     </button>
-	 <button onclick="toggleModal('inventoryModal')" style="width: 25%; background:var(--danger); color:white; cursor:pointer;">Close</button>
+	 <button onclick="exportAllStockToCSV()" class="btn-exportx" style="text-align:center; width: 20%; background:orange; color:white; cursor:pointer;">Download All Stocks </button>
+			
+	 <button onclick="toggleModal('inventoryModal')" style="width: 20%; background:var(--danger); color:white; cursor:pointer;">Close</button>
        
 </div>
         <table width="100%" border="1" style="border-collapse: collapse; margin-top:10px; align-items: center;">
@@ -505,7 +504,7 @@ background: #DEDEDE;
 </div>
 
 <div id="topProductsModal" class="modal">
-    <div class="modal-content" style=" border-top: 5px solid var(--accent);width: 500px;">
+    <div class="modal-content"style="width:100%;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <h5 style="margin: 0; color: var(--primary);"><i class="fas fa-crown"></i> Best Sellers</h5>
            <button class="btn-action" style="background:var(--danger);width: 20%;" onclick="toggleModal('topProductsModal')">CLOSE</button>
@@ -533,6 +532,7 @@ background: #DEDEDE;
         <div id="utangListBody" style="max-height:400px; overflow-y:auto; padding:15px;">
     </div>
 </div>
+
 <div id="tg-chat-wrapper">
     <div id="tg-chat-box" class="tg-hidden">
         <div class="tg-header">
@@ -709,10 +709,10 @@ function renderCart() {
                    style="width: 12px; flex: 1; text-align: right;font-size:16px; border:none; color: green; margin-left: 10px;" 
                    onchange="updateCartQty(${idx}, this.value)">
             
-            <span style="flex: 1; margin-left: 15px; text-align: left;">₱${(item.price * item.qty).toFixed(0)}</span>
+            <span style="flex: 1; margin-left: 15px; text-align: Center;">₱${(item.price * item.qty).toFixed(0)}</span>
            <button 
     onclick="cart.splice(${idx}, 1); renderCart();" 
-    style="flex: 1; text-align: left; background: none; border:none; color: red; cursor: pointer; font-size: 1rem;">
+    style="flex: 1; text-align: center; background: none; border:none; color: red; cursor: pointer; font-size: 1rem;">
     <i class="fas fa-trash" style="color: red;"></i>
 </button> 
 
@@ -883,9 +883,7 @@ function processTransaction() {
 }
 function printReceipt(s) {
     const div = document.getElementById('receipt-print');
-    
     const customer = s.customerName ? s.customerName.toLowerCase() : "WALK-IN";
-
     // Increased base size to 16px and added right padding for clearance
     div.style.fontSize = "16px"; 
     div.style.lineHeight = "1.5";
@@ -894,16 +892,16 @@ function printReceipt(s) {
 
     div.innerHTML = `
         <div style="text-align:center;">
-            <strong style="font-size: 1em;">MEICAI SARI-SARI STORE</strong><br>
-            <span style="font-size: 0.8em;">#36 Donnan Bldg Josefina Street </span><br>
-			<span style="font-size: 0.8em;">4th Avenue Caloocan City Phil.</span><br>
-            <span style="font-size: 0.8em;">Mobile Number: 0950 682 5698</span>
+            <strong style="font-size: 1.1em;">MEICAI  STORE</strong><br>
+            <span style="font-size: 0.9em;">#36 Donnan Bldg Josefina Street </span><br>
+			<span style="font-size: 0.9em;">4th Avenue Caloocan City Phil.</span><br>
+            <span style="font-size: 0.9em;">Mobile Number: 0950 682 5698</span>
         </div>
         
         <hr style="border-top: 2px dashed #000;">
         
         <div style="margin-bottom: 8px;">
-            ${new Date(s.timestamp).toLocaleString()}<br>
+            Date:${new Date(s.timestamp).toLocaleString()}<br>
             Customer: ${customer}<br>
             Method: ${s.method}
         </div>
@@ -912,7 +910,7 @@ function printReceipt(s) {
         
         ${s.items.map(i => `
             <div style="margin-bottom: 2px;">
-                <div style="font-weight: bold; text-transform: uppercase;">${i.name}</div>
+                <div style="font-weight: bold; text-transform: Uppercase;">${i.name}</div>
                 <div style="display: flex; justify-content: space-between;">
                     <span>${i.qty} x ${i.price.toFixed(2)}</span>
                     <span>₱${(i.qty * i.price).toFixed(2)}</span>
@@ -951,11 +949,10 @@ function printReceipt(s) {
         </div>
         
         <hr style="border-top: 2px dashed #000; margin-top: 15px;">
-        <div style="text-align:center; margin-top: 10px; font-weight: bold; padding-bottom: 20px;">
+        <div style="text-align:center; margin-top: 10px; margin-bottom: 20px; font-weight: bold; padding-bottom: 20px;">
             Thanks for your purchase!<br>
             Please come again!!
-		<br>	
-		<hr style="border-top: 2px dashed #000;">
+			
         </div>
     `;
 
@@ -1731,7 +1728,7 @@ function settleUtang(timestamp) {
 
                 // 1. Update status and Print
                 data.status = "Paid";
-                data.method = "Credit(Settled)";
+                data.method = "Credit ( Settled )";
                 printReceipt(data); 
 
                 // 2. Delete the record via the cursor
@@ -1749,6 +1746,40 @@ function settleUtang(timestamp) {
             console.error("End of records. No match found for:", timestamp);
             showAlert("Error: Record not found in database.", "error");
         }
+    };
+}
+function exportAllStockToCSV() {
+    db.transaction("products").objectStore("products").getAll().onsuccess = e => {
+        // 1. Filter the data for stock < 99999
+        const lowStockData = e.target.result.filter(v => v.stock < 99999);
+
+        if (lowStockData.length === 0) {
+            return alert("No low stock items to export!");
+        }
+
+        // 2. Define CSV Headers
+        const csvRows = [["Barcode", "Product Name", "Price", "Current Stock", "Total Sold"]];
+
+        // 3. Map the filtered data into rows
+        lowStockData.forEach(v => {
+            csvRows.push([
+                v.barcode, 
+                `${v.name}`, // Quotes handle names with commas
+                v.price.toFixed(2), 
+                v.stock, 
+                v.sold || 0
+            ]);
+        });
+
+        // 4. Create and trigger download
+        const csvContent = csvRows.map(row => row.join(",")).join("\n");
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", `AllStock_Report_${new Date().toISOString().slice(0,10)}.csv`);
+        link.click();
     };
 }
 </script>
