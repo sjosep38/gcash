@@ -948,12 +948,12 @@ function printReceipt(s) {
             </div>
         </div>
         
-        <hr style="border-top: 2px dashed #000; margin-top: 10px;">
-        <div style="text-align:center; margin-top: 10px;  font-weight: bold; padding-bottom: 30px;">
+<hr style="border-top: 2px dashed #000; margin-top: 10px;">
+        <div style="text-align:center; margin-top: 10px; font-weight: bold;">
             Thanks for your purchase!<br>
-			Please Come Again.
-			<div style="height: 150px;"></div>
         </div>
+
+        <div style="height: 80px;"></div>
     `;
     const receiptString = sendTelegramReceipt(s); 
     sendToTelegram(receiptString);
